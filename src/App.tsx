@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {publicRoutes} from './routes'   
+import { publicRoutes } from './routes';
 import { DefaultLayout } from './components/Layouts';
 import GlobalStyles from './components/GlobalStyles';
 function App(): JSX.Element {
@@ -8,13 +8,23 @@ function App(): JSX.Element {
             <Router>
                 <div className="App">
                     <Routes>
-                        {publicRoutes.map((route,index) =>{
-                            const Page = route.component
-                            let Layout = DefaultLayout
-                            if(route.layout){
-                                Layout = route.layout
+                        {publicRoutes.map((route, index) => {
+                            const Page = route.component;
+                            let Layout = DefaultLayout;
+                            if (route.layout) {
+                                Layout = route.layout;
                             }
-                            return <Route key={index} path={route.path} element={<Layout><Page/></Layout>}/>
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={
+                                        <Layout>
+                                            <Page />
+                                        </Layout>
+                                    }
+                                />
+                            );
                         })}
                     </Routes>
                 </div>
@@ -24,4 +34,3 @@ function App(): JSX.Element {
 }
 
 export default App;
-    

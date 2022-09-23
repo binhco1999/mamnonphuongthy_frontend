@@ -1,25 +1,45 @@
-body{
-    background-color: red;
-}   
+@import 'grid';
+@import 'mediaAdvanced';
+
+//Reset CSS
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  ol,
-  ul {
+}
+ol,
+ul {
     list-style: none;
-  }
-  a {
+}
+a {
     text-decoration: none;
-  }
-  img {
+}
+img {
     display: block;
-  }
-  input,
-  button {
-                
+}
+input,
+button {
     border: none;
+    background: none;
     outline: none;
-  }
-  
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-size: 1.6em;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+//Container box
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+//variables
+:root {
+    --primary-color: #bf1a88;
+}
