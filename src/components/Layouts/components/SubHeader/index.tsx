@@ -11,8 +11,17 @@ function SubHeader() {
         <header className={cx('wrapper-subheader')}>
             <div className={cx('outer-subheader')}>
                 <div className={cx('container')}>
-                    <div className={cx('inner-subheader')}>
-                        <div className={cx('direct-contact')}>
+                    <div className={cx('inner-subheader', 'row')}>
+                        <div
+                            className={cx(
+                                'direct-contact',
+                                'col-xs-9',
+                                'col-sm-9',
+                                'col-md-10',
+                                'col-lg-10',
+                                'col-xl-10',
+                            )}
+                        >
                             <a
                                 href={
                                     'https://www.google.com/maps/place/M%E1%BA%A7m+Non+T%C6%B0+Th%E1%BB%A5c+Ph%C6%B0%C6%A1ng+Thy/@10.1190909,106.629646,17z/data=!4m5!3m4!1s0x319ffdfcd72b994d:0xf5477626fd9abaf!8m2!3d10.1190909!4d106.6318347'
@@ -32,12 +41,14 @@ function SubHeader() {
                                 SĐT: 0963-940-669
                             </a>
                         </div>
-                        <div className={cx('social-contact')}>
+                        <div
+                            className={cx('social-contact', 'col-xs-3', 'col-sm-3', 'col-md-2', 'col-lg-2', 'col-xl-2')}
+                        >
                             <a href={'https://www.facebook.com/mamnonphuongthy'} target={'_blank'} rel="noreferrer">
-                                <FontAwesomeIcon icon={faFacebook} />
+                                <FontAwesomeIcon className={cx('icon', 'icon-fb')} icon={faFacebook} />
                             </a>
                             <a href={'https://www.youtube.com/'} target={'_blank'} rel="noreferrer">
-                                <FontAwesomeIcon icon={faYoutube} />
+                                <FontAwesomeIcon className={cx('icon', 'icon-youtube')} icon={faYoutube} />
                             </a>
                         </div>
                     </div>
