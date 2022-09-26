@@ -1,9 +1,10 @@
 @import '../../../GlobalStyles/GlobalStyles.scss';
 .wrapper-subheader {
     .outer-subheader {
+        background-color: var(--primary-color);
         .container {
+            font-size: 0.8rem;
             .inner-subheader {
-                background-color: var(--primary-color);
                 .direct-contact {
                     display: flex;
                     a {
@@ -13,6 +14,8 @@
                         color: white;
                         padding: 5px;
                         border-radius: 5px;
+                        margin-right: 10px;
+                        transition: all 0.4s;
                         &:hover {
                             background-color: white;
                             color: var(--primary-color);
@@ -21,17 +24,32 @@
                             }
                         }
                     }
-                    .icon {
-                        margin-right: 5px;
-                        color: white;
-                    }
+
                     @include media(xs, sm) {
-                        flex-direction: column;
+                        .icon {
+                            font-size: 1.2rem;
+                            padding: 5px;
+                        }
+                        .icon-responsive-desktop {
+                            display: none;
+                        }
+                        .icon-responsive-mobile {
+                            display: flex;
+                        }
                     }
                     @include media(md, lg, xl) {
-                        flex-direction: row;
-                        a {
-                            margin-right: 10px;
+                        .icon {
+                            font-size: 1rem;
+                            padding: 0;
+                            transition: all 0.4s;
+                            margin-right: 5px;
+                            color: white;
+                        }
+                        .icon-responsive-desktop {
+                            display: flex;
+                        }
+                        .icon-responsive-mobile {
+                            display: none;
                         }
                     }
                 }
@@ -40,12 +58,13 @@
                     justify-content: center;
                     align-items: center;
                     a {
+                        transition: all 0.4s;
                         background-color: rgba($color: #ffff, $alpha: 0.2);
                         text-align: center;
                         margin: auto;
                         border-radius: 5px;
-                        font-size: 3rem;
-                        width: 80%;
+                        font-size: 1.2rem;
+                        width: 100%;
                         .icon-fb {
                             color: blue;
                         }
@@ -57,13 +76,20 @@
                         }
                     }
                     @include media(xs, sm) {
-                        flex-direction: column;
+                        .icon {
+                            font-size: 1.4rem;
+                        }
+                        a {
+                            margin-right: 5px;
+                        }
                     }
                     @include media(md, lg, xl) {
                         a {
                             margin-right: 5px;
                         }
-                        flex-direction: row;
+                        .icon {
+                            font-size: 1.2rem;
+                        }
                     }
                 }
             }

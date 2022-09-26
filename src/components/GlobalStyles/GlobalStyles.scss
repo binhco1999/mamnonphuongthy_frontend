@@ -1,12 +1,15 @@
 @import 'grid';
 @import 'mediaAdvanced';
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 //Reset CSS
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 ol,
 ul {
     list-style: none;
@@ -38,5 +41,4 @@ body {
 //variables
 :root {
     --primary-color: #bf1a88;
-    font-size: 10px;
 }
