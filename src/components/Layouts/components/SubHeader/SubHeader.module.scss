@@ -27,7 +27,6 @@
 
                     @include media(xs, sm) {
                         .icon {
-                            font-size: 1.2rem;
                             padding: 5px;
                             color: white;
                         }
@@ -40,7 +39,6 @@
                     }
                     @include media(md, lg, xl) {
                         .icon {
-                            font-size: 1rem;
                             padding: 0;
                             transition: all 0.4s;
                             margin-right: 5px;
@@ -78,7 +76,7 @@
                     }
                     @include media(xs, sm) {
                         .icon {
-                            font-size: 1.2rem;
+                            font-size: 1rem;
                         }
                         a {
                             margin-right: 5px;

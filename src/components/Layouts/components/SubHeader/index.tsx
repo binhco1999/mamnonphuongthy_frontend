@@ -1,7 +1,5 @@
-import { faFacebook, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope, faMap } from '@fortawesome/free-regular-svg-icons';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { PhoneIcon, EnvelopeIcon, MapIcon } from '@heroicons/react/24/outline';
+
 import classNames from 'classnames/bind';
 import styles from './SubHeader.module.scss';
 const cx = classNames.bind(styles);
@@ -23,21 +21,22 @@ function SubHeader() {
                         >
                             <div className={cx('icon-responsive-desktop')}>
                                 <a
+                                    className="hover:text-pink-700"
                                     href={
                                         'https://www.google.com/maps/place/M%E1%BA%A7m+Non+T%C6%B0+Th%E1%BB%A5c+Ph%C6%B0%C6%A1ng+Thy/@10.1190909,106.629646,17z/data=!4m5!3m4!1s0x319ffdfcd72b994d:0xf5477626fd9abaf!8m2!3d10.1190909!4d106.6318347'
                                     }
                                     target="_blank"
                                     rel="noreferrer"
                                 >
-                                    <FontAwesomeIcon className={cx('icon')} icon={faMap} />
+                                    <MapIcon className="block h-4 w-4 mr-1  icon" />
                                     Vị trí trên bản đồ
                                 </a>
-                                <a href={'mailto:mamnonphuongthy@gmail.com'}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faEnvelope} />
+                                <a className="hover:text-pink-700" href={'mailto:mamnonphuongthy@gmail.com'}>
+                                    <EnvelopeIcon className="block h-4 w-4 mr-1  icon " />
                                     mamnonphuongthy@gmail.com
                                 </a>
-                                <a href={'tel:+84963940669'}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faPhone} />
+                                <a className="hover:text-pink-700" href={'tel:+84963940669'}>
+                                    <PhoneIcon className="block h-4 w-4 mr-1  icon " />
                                     SĐT: 0963-940-669
                                 </a>
                             </div>
@@ -48,14 +47,15 @@ function SubHeader() {
                                     }
                                     target="_blank"
                                     rel="noreferrer"
+                                    className="hover:text-pink-700"
                                 >
-                                    <FontAwesomeIcon className={cx('icon')} icon={faMap} />
+                                    <MapIcon className="block h-6 w-6  icon  " />
                                 </a>
-                                <a href={'mailto:mamnonphuongthy@gmail.com'}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faEnvelope} />
+                                <a href={'mailto:mamnonphuongthy@gmail.com'} className="hover:text-pink-700">
+                                    <EnvelopeIcon className="block h-6 w-6  icon " />
                                 </a>
-                                <a href={'tel:+84963940669'}>
-                                    <FontAwesomeIcon className={cx('icon')} icon={faPhone} />
+                                <a href={'tel:+84963940669'} className="hover:text-pink-700">
+                                    <PhoneIcon className="block h-6 w-6  icon " />
                                 </a>
                             </div>
                         </div>
@@ -63,10 +63,7 @@ function SubHeader() {
                             className={cx('social-contact', 'col-xs-3', 'col-sm-3', 'col-md-2', 'col-lg-2', 'col-xl-2')}
                         >
                             <a href={'https://www.facebook.com/mamnonphuongthy'} target={'_blank'} rel="noreferrer">
-                                <FontAwesomeIcon className={cx('icon', 'icon-fb')} icon={faFacebook} />
-                            </a>
-                            <a href={'https://www.youtube.com/'} target={'_blank'} rel="noreferrer">
-                                <FontAwesomeIcon className={cx('icon', 'icon-youtube')} icon={faYoutube} />
+                                <div className={cx('icon', 'icon-fb', 'font-bold')}>Facebook</div>
                             </a>
                         </div>
                     </div>

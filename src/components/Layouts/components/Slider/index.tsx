@@ -16,7 +16,7 @@ import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper';
 export default function Slider() {
     let [background, setBackground] = useState([]);
     useEffect(() => {
-        const url = 'https://mamnonphuongthy-social.herokuapp.com/api/v1/backgrounds';
+        const url = 'http://localhost:5000/api/v1/backgrounds';
         const fetchApi = async () => {
             await axios.get(url).then((response) => {
                 setBackground(response.data);
