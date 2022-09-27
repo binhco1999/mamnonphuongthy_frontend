@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Slider from '../../Slider';
 import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
@@ -31,7 +30,6 @@ function Home() {
 
     return (
         <div className={cx('wrapper-home')}>
-            <Slider />
             <div className="py-12">
                 <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="lg:text-center">

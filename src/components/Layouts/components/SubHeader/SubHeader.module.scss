@@ -1,13 +1,13 @@
 @import '../../../GlobalStyles/GlobalStyles.scss';
 .wrapper-subheader {
     .outer-subheader {
-        background-color: var(--primary-color);
         .container {
             font-size: 0.8rem;
             .inner-subheader {
                 .direct-contact {
                     display: flex;
                     a {
+                        font-weight: bold;
                         display: flex;
                         justify-content: center;
                         align-items: center;
@@ -29,6 +29,7 @@
                         .icon {
                             font-size: 1.2rem;
                             padding: 5px;
+                            color: white;
                         }
                         .icon-responsive-desktop {
                             display: none;
