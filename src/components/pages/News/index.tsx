@@ -1,7 +1,8 @@
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import env from 'react-dotenv';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 function News() {
     let [posts, setPosts] = useState([]);
@@ -85,9 +86,12 @@ function News() {
                                             <div className="absolute h-12 w-12 flex items-center justify-center rounded-md bg-indigo-500 text-white">
                                                 <img className="h-12 w-12" src={val.urlimg} alt={val.subtitle} />
                                             </div>
-                                            <h3 className="ml-16 text-lg font-medium leading-6 text-gray-900">
-                                                {val.title}
-                                            </h3>
+                                            <Link
+                                                to={val._id}
+                                                className="ml-16 text-lg font-medium leading-6 text-gray-900"
+                                            >
+                                                <h3>{val.title}</h3>
+                                            </Link>
                                         </dt>
                                         <dd className="mt-2 ml-16 text-base text-gray-500">{val.subtitle}</dd>
                                     </div>
