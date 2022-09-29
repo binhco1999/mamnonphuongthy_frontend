@@ -33,11 +33,11 @@ function Header() {
                             </div>
                             <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                                 <div className="flex flex-shrink-0 items-center">
-                                    <AcademicCapIcon className="block h-6 w-6 lg:h-7 lg:w-7 text-white" />
+                                    <AcademicCapIcon className="block h-6 w-6 lg:h-7 lg:w-7 text-white mr-1" />
                                 </div>
-                                <div className="flex flex-shrink-0 items-center text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white">
+                                <h3 className="flex flex-shrink-0 items-center text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white">
                                     MẦM NON PHƯƠNG THY
-                                </div>
+                                </h3>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4 text-sm sm:text-sm md:text-base lg:text-lg font-semibold">
                                         {navigation.map((item) => (
@@ -57,7 +57,7 @@ function Header() {
                                                 className={classNames(
                                                     item.current
                                                         ? 'bg-slate-50 text-pink-700'
-                                                        : 'text-slate-50 hover:bg-slate-50 hover:text-pink-700',
+                                                        : 'text-slate-50 hover:bg-slate-50 transition hover:text-pink-700',
                                                     'px-3 py-2 rounded-md text-sm font-medium',
                                                 )}
                                                 aria-current={item.current}

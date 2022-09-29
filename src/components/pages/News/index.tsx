@@ -1,5 +1,151 @@
+import { useState, useEffect, Fragment } from 'react';
+import axios from 'axios';
+import env from 'react-dotenv';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+
 function News() {
-    return <div>News</div>
+    let [posts, setPosts] = useState([]);
+    let [page, setPage] = useState(1);
+    let [total, setTotal] = useState(1);
+    // const url = `${env.API_URL}/api/v1/posts/`;
+    const urlPostPaging = `${env.API_URL}/api/v1/posts/paging/${page}`;
+    useEffect(() => {
+        const fetchApi = async () => {
+            await axios.get(urlPostPaging).then((response) => {
+                setTotal(response.data.total);
+                // setPage(response.data.page);
+                setPosts(response.data.items);
+            });
+        };
+        fetchApi();
+    }, [page, total]);
+
+    const times = (number: any) => {
+        let pageNum = Math.ceil(number / 10);
+        return pageNum;
+    };
+
+    const handlePaging = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        let target = e.currentTarget.textContent;
+        if (target === 'Trang sau') {
+            if (page < times(total)) {
+                setPage(page + 1);
+            }
+        } else if (target === 'Trang trước') {
+            if (page > 1) {
+                setPage(page - 1);
+            }
+        } else {
+            let convertNum = Number(target);
+            if (convertNum === page) {
+                return;
+            } else if (convertNum > page || convertNum < page) {
+                setPage(convertNum);
+            }
+        }
+    };
+
+    console.log(page);
+
+    const renderPages = (total: any) => {
+        let content = [];
+
+        for (let i = 0; i < times(total); i++) {
+            content.push(
+                <button
+                    onClick={handlePaging}
+                    key={i + 1}
+                    aria-current="page"
+                    className="relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 focus:z-20"
+                >
+                    {i + 1}
+                </button>,
+            );
+        }
+        return content;
+    };
+    return (
+        <div>
+            <div className="py-12">
+                <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
+                    <div className="lg:text-center">
+                        <h2 className="text-3xl sm:text-4xl leading-8 text-pink-700 font-semibold font-bold">
+                            Sự kiện mới nhất
+                        </h2>
+                        <p className="mt-4 max-w-2xl text-xl text-pink-800 lg:mx-auto">
+                            Tổng hợp những sự kiện mới nhất của trường mầm non Phương Thy
+                        </p>
+                    </div>
+                    <div className="mt-10">
+                        <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
+                            {posts.map((val: any, idx) => {
+                                return (
+                                    <div className="relative" key={idx}>
+                                        <dt>
+                                            <div className="absolute h-12 w-12 flex items-center justify-center rounded-md bg-indigo-500 text-white">
+                                                <img className="h-12 w-12" src={val.urlimg} alt={val.subtitle} />
+                                            </div>
+                                            <h3 className="ml-16 text-lg font-medium leading-6 text-gray-900">
+                                                {val.title}
+                                            </h3>
+                                        </dt>
+                                        <dd className="mt-2 ml-16 text-base text-gray-500">{val.subtitle}</dd>
+                                    </div>
+                                );
+                            })}
+                        </dl>
+                    </div>
+                </div>
+                <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+                    <div className="flex flex-1 justify-between sm:hidden">
+                        <button
+                            onClick={handlePaging}
+                            className="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                        >
+                            Trang trước
+                        </button>
+                        <button
+                            onClick={handlePaging}
+                            className="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                        >
+                            Trang sau
+                        </button>
+                    </div>
+                    <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+                        <div>
+                            <p className="text-sm text-gray-700">
+                                Hiển thị <span className="font-medium">1</span> đến{' '}
+                                <span className="font-medium">10</span> trong số{' '}
+                                <span className="font-medium">{total}</span> Bài viết
+                            </p>
+                        </div>
+                        <div>
+                            <nav
+                                className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                                aria-label="Pagination"
+                            >
+                                <button
+                                    onClick={handlePaging}
+                                    className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
+                                >
+                                    <span className="sr-only">Trang trước</span>
+                                    <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+                                </button>
+                                {renderPages(total)}
+                                <button
+                                    onClick={handlePaging}
+                                    className="relative inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20"
+                                >
+                                    <span className="sr-only">Trang sau</span>
+                                    <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default News;

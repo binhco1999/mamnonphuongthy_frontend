@@ -2,7 +2,7 @@ import { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
+import env from 'react-dotenv';
 // Import Swiper styles
 import 'swiper/scss';
 import 'swiper/css/navigation';
@@ -15,8 +15,8 @@ import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper';
 
 export default function Slider() {
     let [background, setBackground] = useState([]);
+    const url = `${env.API_URL}/api/v1/backgrounds`;
     useEffect(() => {
-        const url = 'http://localhost:5000/api/v1/backgrounds';
         const fetchApi = async () => {
             await axios.get(url).then((response) => {
                 setBackground(response.data);
