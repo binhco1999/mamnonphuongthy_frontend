@@ -8,7 +8,7 @@ function DefaultLayout({ children }: { children: any }) {
             <SubHeader />
             <Header />
             <div className="container">
-                <Sidebar />
+                {/* <Sidebar /> */}
                 <div className="content">{children}</div>
             </div>
         </div>

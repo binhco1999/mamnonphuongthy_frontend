@@ -46,8 +46,6 @@ function News() {
         }
     };
 
-    console.log(page);
-
     const renderPages = (total: any) => {
         let content = [];
 
@@ -57,7 +55,7 @@ function News() {
                     onClick={handlePaging}
                     key={i + 1}
                     aria-current="page"
-                    className="relative z-10 inline-flex items-center border border-indigo-500 bg-indigo-50 px-4 py-2 text-sm font-medium text-indigo-600 focus:z-20"
+                    className="relative z-10 text-white transition inline-flex items-center px-4 py-2 text-sm font-medium bg-pink-500 hover:bg-pink-600 active:bg-pink-700 focus:outline-none focus:ring focus:ring-pink-300"
                 >
                     {i + 1}
                 </button>,
@@ -69,12 +67,12 @@ function News() {
         <div>
             <div className="p-0">
                 <div className="max-w-7xl ">
-                    <div className="lg:text-center bg-mnpt-back p-20 bg-right md:p-32 md:bg-right   lg:bg-center ">
+                    <div className="lg:text-center bg-mnpt-back p-20 bg-right md:p-32 md:bg-right lg:bg-center ">
                         <div className="rounded-md backdrop-brightness-125  bg-white/60 hover:bg-white/90 transition p-2 md:p-5 ">
                             <h2 className="text-3xl sm:text-4xl leading-8 text-pink-700 font-bold ">
                                 Sự kiện mới nhất
                             </h2>
-                            <p className="mt-4 max-w-2xl text-xl text-pink-700 font-semibold lg:mx-auto">
+                            <p className="lg:overline  mt-4 max-w-2xl text-xl text-pink-700 font-semibold lg:mx-auto">
                                 Tổng hợp những sự kiện mới nhất của trường mầm non Phương Thy
                             </p>
                         </div>
@@ -97,7 +95,9 @@ function News() {
                                                     {val.title}
                                                 </h3>
                                             </Link>
-                                            <p className="mt-2 text-base leading-6 text-gray-500">{val.subtitle}</p>
+                                            <p className="text-justify mt-2 text-base leading-6 text-gray-500">
+                                                {val.subtitle}
+                                            </p>
                                         </div>
                                     </div>
                                 );

@@ -47,7 +47,7 @@ export default function Slider() {
                 {background.map((val: any, index) => {
                     return (
                         <SwiperSlide key={index}>
-                            <img className="object-fill w-full h-96" src={val.urlimg} alt={val.date} />
+                            <img className="object-fill w-full h-full" src={val.urlimg} alt={val.date} />
                         </SwiperSlide>
                     );
                 })}
