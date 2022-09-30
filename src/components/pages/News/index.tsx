@@ -67,33 +67,38 @@ function News() {
     };
     return (
         <div>
-            <div className="py-12">
-                <div className="max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div className="lg:text-center">
-                        <h2 className="text-3xl sm:text-4xl leading-8 text-pink-700 font-semibold font-bold">
-                            Sự kiện mới nhất
-                        </h2>
-                        <p className="mt-4 max-w-2xl text-xl text-pink-800 lg:mx-auto">
-                            Tổng hợp những sự kiện mới nhất của trường mầm non Phương Thy
-                        </p>
+            <div className="p-0">
+                <div className="max-w-7xl ">
+                    <div className="lg:text-center bg-mnpt-back p-20 bg-right md:p-32 md:bg-right   lg:bg-center ">
+                        <div className="rounded-md backdrop-brightness-125  bg-white/60 hover:bg-white/90 transition p-2 md:p-5 ">
+                            <h2 className="text-3xl sm:text-4xl leading-8 text-pink-700 font-bold ">
+                                Sự kiện mới nhất
+                            </h2>
+                            <p className="mt-4 max-w-2xl text-xl text-pink-700 font-semibold lg:mx-auto">
+                                Tổng hợp những sự kiện mới nhất của trường mầm non Phương Thy
+                            </p>
+                        </div>
                     </div>
-                    <div className="mt-10">
-                        <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10 md:space-y-0">
+                    <div className="mt-10 px-2 sm:px-4">
+                        <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:space-y-0">
                             {posts.map((val: any, idx) => {
                                 return (
-                                    <div className="relative" key={idx}>
-                                        <dt>
-                                            <div className="absolute h-12 w-12 flex items-center justify-center rounded-md bg-indigo-500 text-white">
-                                                <img className="h-12 w-12" src={val.urlimg} alt={val.subtitle} />
-                                            </div>
-                                            <Link
-                                                to={val._id}
-                                                className="ml-16 text-lg font-medium leading-6 text-gray-900"
-                                            >
-                                                <h3>{val.title}</h3>
+                                    <div className="relative flex" key={idx}>
+                                        <div className="w-1/3">
+                                            <img
+                                                className="w-24 h-24 lg:w-36 lg:h-36"
+                                                src={val.urlimg}
+                                                alt={val.subtitle}
+                                            />
+                                        </div>
+                                        <div className="w-2/3">
+                                            <Link to={val._id}>
+                                                <h3 className="text-lg font-semibold leading-6 text-gray-900 underline underline-offset-2">
+                                                    {val.title}
+                                                </h3>
                                             </Link>
-                                        </dt>
-                                        <dd className="mt-2 ml-16 text-base text-gray-500">{val.subtitle}</dd>
+                                            <p className="mt-2 text-base leading-6 text-gray-500">{val.subtitle}</p>
+                                        </div>
                                     </div>
                                 );
                             })}

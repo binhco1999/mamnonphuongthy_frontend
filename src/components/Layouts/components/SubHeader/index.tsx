@@ -5,7 +5,7 @@ import styles from './SubHeader.module.scss';
 const cx = classNames.bind(styles);
 function SubHeader() {
     return (
-        <header className={cx('wrapper-subheader', 'bg-lime-500')}>
+        <header className={cx('wrapper-subheader', 'bg-lime-600')}>
             <div className={cx('outer-subheader')}>
                 <div className={cx('container')}>
                     <div className={cx('inner-subheader', 'row')}>
