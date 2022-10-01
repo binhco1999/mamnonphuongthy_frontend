@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
-        <footer className="p-4 bg-pink-700 shadow md:px-6 md:py-8 dark:bg-gray-900">
+        <footer className="p-2 bg-pink-700 shadow md:px-6 md:py-8 dark:bg-gray-900">
             <div className="sm:flex sm:items-center sm:justify-between container">
                 <Link to="/" className="flex items-center mb-4 sm:mb-0">
                     <img
@@ -14,7 +14,7 @@ function Footer() {
                         MẦM NON PHƯƠNG THY
                     </h2>
                 </Link>
-                <ul className="transition flex flex-wrap items-center mb-6 text-sm text-white sm:mb-0">
+                <ul className="transition flex flex-wrap items-center text-sm text-white sm:mb-0">
                     <li>
                         <div className="mr-4 md:mr-6 ">Thông tin nhà phát triển :</div>
                     </li>
@@ -39,8 +39,8 @@ function Footer() {
                     </li>
                 </ul>
             </div>
-            <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
-            <span className="block text-sm text-white sm:text-center">
+            <hr className="my-6  border-gray-200 sm:mx-auto lg:my-8" />
+            <span className="p-4 pl-0 sm:p-0 block text-sm text-white sm:text-center">
                 Copyright © Trường Mầm non Phương Thy
                 <br /> Thiết kế và phát triển bởi Trần Bình Cơ
             </span>

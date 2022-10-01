@@ -122,6 +122,7 @@ function News() {
                             Trang sau
                         </button>
                     </div>
+
                     <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
                         <div>
                             <p className="text-sm text-gray-700">
@@ -153,6 +154,12 @@ function News() {
                             </nav>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <p className="sm:hidden text-center p-6 text-sm text-gray-700">
+                        Hiển thị <span className="font-medium">1</span> đến <span className="font-medium">10</span>{' '}
+                        trong số <span className="font-medium">{total}</span> Bài viết
+                    </p>
                 </div>
             </div>
         </div>
