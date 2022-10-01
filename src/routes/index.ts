@@ -10,8 +10,9 @@ import NewsDetail from '../components/pages/NewsDetail';
 const publicRoutes = [
     { path: '/', component: Home },
     { path: '/login', component: Login, layout: HeaderOnly },
-    { path: '/news/', component: News },
+    { path: '/news', component: News },
     { path: '/news/:id', component: NewsDetail },
+    { path: '/:id', component: NewsDetail },
     { path: '/recruit', component: Recruit },
     { path: '/contact', component: Contact },
 ];

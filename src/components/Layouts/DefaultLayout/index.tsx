@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import SubHeader from '../components/SubHeader';
-import Sidebar from './Sidebar';
+import Footer from '../components/Footer';
 function DefaultLayout({ children }: { children: any }) {
     return (
         <div>
@@ -11,6 +10,7 @@ function DefaultLayout({ children }: { children: any }) {
                 {/* <Sidebar /> */}
                 <div className="content">{children}</div>
             </div>
+            <Footer />
         </div>
     );
 }

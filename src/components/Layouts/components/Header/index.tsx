@@ -35,9 +35,11 @@ function Header() {
                                 <div className="flex flex-shrink-0 items-center">
                                     <AcademicCapIcon className="block h-6 w-6 lg:h-7 lg:w-7 text-white mr-1" />
                                 </div>
-                                <h3 className="flex flex-shrink-0 items-center text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white">
-                                    MẦM NON PHƯƠNG THY
-                                </h3>
+                                <Link to={'/'}>
+                                    <h3 className="flex flex-shrink-0 items-center text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white">
+                                        MẦM NON PHƯƠNG THY
+                                    </h3>
+                                </Link>
                                 <div className="hidden sm:ml-6 sm:block">
                                     <div className="flex space-x-4 text-sm sm:text-sm md:text-base lg:text-lg font-semibold">
                                         {navigation.map((item) => (
@@ -91,15 +93,14 @@ function Header() {
                                         <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             <Menu.Item>
                                                 {({ active }) => (
-                                                    <a
-                                                        href="#"
+                                                    <div
                                                         className={classNames(
                                                             active ? 'bg-gray-100' : '',
                                                             'block px-4 py-2 text-sm text-gray-700',
                                                         )}
                                                     >
                                                         Đang phát triển ...
-                                                    </a>
+                                                    </div>
                                                 )}
                                             </Menu.Item>
                                         </Menu.Items>

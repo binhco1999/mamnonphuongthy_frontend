@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import env from 'react-dotenv';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
@@ -8,13 +8,12 @@ function News() {
     let [posts, setPosts] = useState([]);
     let [page, setPage] = useState(1);
     let [total, setTotal] = useState(1);
-    // const url = `${env.API_URL}/api/v1/posts/`;
-    const urlPostPaging = `${env.API_URL}/api/v1/posts/paging/${page}`;
+    let ref = useRef('');
     useEffect(() => {
+        ref.current = `${env.API_URL}/api/v1/posts/paging/${page}`;
         const fetchApi = async () => {
-            await axios.get(urlPostPaging).then((response) => {
+            await axios.get(ref.current).then((response) => {
                 setTotal(response.data.total);
-                // setPage(response.data.page);
                 setPosts(response.data.items);
             });
         };
@@ -65,7 +64,7 @@ function News() {
     };
     return (
         <div>
-            <div className="p-0">
+            <div className="p-0 pb-6">
                 <div className="max-w-7xl ">
                     <div className="lg:text-center bg-mnpt-back p-20 bg-right md:p-32 md:bg-right lg:bg-center ">
                         <div className="rounded-md backdrop-brightness-125  bg-white/60 hover:bg-white/90 transition p-2 md:p-5 ">
@@ -77,31 +76,34 @@ function News() {
                             </p>
                         </div>
                     </div>
-                    <div className="mt-10 px-2 sm:px-4">
+                    <div className="mt-10 p-2 sm:px-4">
                         <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:space-y-0">
-                            {posts.map((val: any, idx) => {
-                                return (
-                                    <div className="relative flex" key={idx}>
-                                        <div className="w-1/3">
-                                            <img
-                                                className="w-24 h-24 lg:w-36 lg:h-36"
-                                                src={val.urlimg}
-                                                alt={val.subtitle}
-                                            />
+                            {posts
+                                .slice(0)
+                                .reverse()
+                                .map((val: any, idx) => {
+                                    return (
+                                        <div className="relative flex" key={idx}>
+                                            <div className="w-1/3">
+                                                <img
+                                                    className="w-24 h-24 lg:w-36 lg:h-36"
+                                                    src={val.urlimg}
+                                                    alt={val.subtitle}
+                                                />
+                                            </div>
+                                            <div className="w-2/3">
+                                                <Link to={val._id} preventScrollReset={true}>
+                                                    <h3 className="text-lg font-semibold leading-6 text-gray-900 underline underline-offset-2">
+                                                        {val.title}
+                                                    </h3>
+                                                </Link>
+                                                <p className="text-justify mt-2 text-base leading-6 text-gray-500">
+                                                    {val.subtitle}
+                                                </p>
+                                            </div>
                                         </div>
-                                        <div className="w-2/3">
-                                            <Link to={val._id}>
-                                                <h3 className="text-lg font-semibold leading-6 text-gray-900 underline underline-offset-2">
-                                                    {val.title}
-                                                </h3>
-                                            </Link>
-                                            <p className="text-justify mt-2 text-base leading-6 text-gray-500">
-                                                {val.subtitle}
-                                            </p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
                         </dl>
                     </div>
                 </div>
