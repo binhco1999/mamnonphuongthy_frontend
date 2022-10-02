@@ -15,7 +15,7 @@ function classNames(...classes: any) {
 
 function Header() {
     return (
-        <Disclosure as="nav" className="bg-pink-700 ">
+        <Disclosure as="nav" className="bg-pink-700 sticky top-0 z-50 ">
             {({ open }) => (
                 <Fragment>
                     <div className="mx-auto max-w-7xl px-2 ">

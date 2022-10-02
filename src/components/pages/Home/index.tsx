@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 function Home() {
     return (
-        <div className={cx('wrapper-home bg-gradient-to-r from-pink-200 to-yellow-200')}>
+        <div className={cx('wrapper-home bg-gradient-to-r from-yellow-200 to-pink-200')}>
             <div className="lg:px-60 lg:pb-8">
                 <Slider />
             </div>

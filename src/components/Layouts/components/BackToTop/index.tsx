@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowLongUpIcon } from '@heroicons/react/24/outline';
 
 export const BackToTop = () => {
@@ -19,13 +19,6 @@ export const BackToTop = () => {
             behavior: 'smooth',
         });
     };
-    useEffect(() => {
-        window.addEventListener('scroll', toggleVisible);
-
-        return () => {
-            window.removeEventListener('scroll', toggleVisible);
-        };
-    }, []);
 
     window.addEventListener('scroll', toggleVisible);
 
