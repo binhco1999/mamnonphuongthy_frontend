@@ -11,7 +11,9 @@ function News() {
     let [page, setPage] = useState(1);
     let [total, setTotal] = useState(1);
     let [filterData, setFilterData] = useState([]);
+    let [notFound, setNotFound] = useState(false);
     let [searchResult, setSearchResult] = useState(false);
+    let [notFoundKeyWord, setNotFoundKeyWord] = useState('');
     let ref = useRef('');
     let debounced = useDebounce(inputValue, 500);
 
@@ -82,7 +84,10 @@ function News() {
                     item.title.toLowerCase().includes(searchKeyWord) ||
                     item.subtitle.toLowerCase().includes(searchKeyWord),
             );
+
             setFilterData(filteredData);
+            setNotFound(true);
+            setNotFoundKeyWord(inputValue);
             setSearchResult(true);
         }
     };
@@ -101,7 +106,7 @@ function News() {
                         </div>
                     </div>
                     <div className="mt-10  sm:px-4">
-                        <div className="flex justify-end p-2 text-lg">
+                        <div className="flex justify-center md:justify-end items-center p-2 text-lg">
                             <input
                                 onKeyPress={handleKeyPress}
                                 onChange={(e) => setInputValue(e.target.value)}
@@ -118,7 +123,7 @@ function News() {
                                 <MagnifyingGlassIcon className="h-7 w-7" aria-hidden="true" />
                             </button>
                         </div>
-                        <dl className="space-y-10 md:grid md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:space-y-0">
+                        <dl className="mt-4 space-y-10 md:grid md:grid-cols-2 md:gap-x-10 md:gap-y-10 md:space-y-0">
                             {inputValue.length > 0 && searchResult
                                 ? filterData.map((val: any, idx) => {
                                       return (
@@ -146,6 +151,11 @@ function News() {
                                           );
                                       })}
                         </dl>
+                        {notFound && filterData.length === 0 && inputValue && searchResult && (
+                            <div>
+                                <h3>Không tìm thấy bài viết liên quan đến từ khóa "{notFoundKeyWord}"</h3>
+                            </div>
+                        )}
                     </div>
                 </div>
                 {!inputValue && (

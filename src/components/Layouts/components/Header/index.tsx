@@ -35,8 +35,8 @@ function Header() {
                                 <div className="flex flex-shrink-0 items-center">
                                     <AcademicCapIcon className="block h-6 w-6 lg:h-7 lg:w-7 text-white mr-1" />
                                 </div>
-                                <Link to={'/'}>
-                                    <h3 className="flex flex-shrink-0 items-center text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white">
+                                <Link className="inline-flex justify-center items-center" to={'/'}>
+                                    <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white">
                                         MẦM NON PHƯƠNG THY
                                     </h3>
                                 </Link>
