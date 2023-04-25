@@ -35,21 +35,23 @@ function NewsDetail() {
                     <div className="block transition duration-200 ease-out transform lg:hover:scale-105">
                         <img
                             className=" p-10 object-cover w-full shadow-sm h-full"
-                            src={post.urlimg ? post.urlimg : ''}
-                            alt={post.title}
+                            src={post.urlimg || ' '}
+                            alt={post.title || ' '}
                         />
                     </div>
                     {/*post categories*/}
 
                     <div className="mt-2">
                         {/*post heading*/}
-                        <h2 className="sm:text-xl md:text-2xl lg:text-3xl font-bold text-pink-600 p-4">{post.title}</h2>
+                        <h2 className="sm:text-xl md:text-2xl lg:text-3xl font-bold text-pink-600 p-4">
+                            {post.title || 'Đang tải nội dung bài viết...'}
+                        </h2>
                         {/*post views*/}
                         <div className="p-4 flex justify-start items-center mt-2">
                             <p className="text-sm text-yellow-500 font-bold bg-gray-100 rounded-md py-2 px-2">
                                 Ngày đăng:
                             </p>
-                            <p className="text-sm text-gray-400 font-bold ml-5">{convertDate}</p>
+                            <p className="text-sm text-gray-400 font-bold ml-5">{convertDate || ' '}</p>
                         </div>
                         {/*author avator*/}
                         <div className="font-light text-gray-600">
@@ -60,7 +62,7 @@ function NewsDetail() {
                                     alt="avatar"
                                     className=" object-cover w-12 h-12 mx-2 rounded-full "
                                 />
-                                <span className="text-base font-semibold text-gray-700">{post.name}</span>
+                                <span className="text-base font-semibold text-gray-700">{post.name || ' '}</span>
                             </div>
                         </div>
                     </div>
@@ -69,7 +71,7 @@ function NewsDetail() {
                     <div className=" p-4  text-xl ">
                         {/*content body*/}
                         <div className="p-4 lg:p-0 text-gray-700 mt-4 rounded bg-gray-100 ">
-                            <p className="mt-2 p-2 ">{post.text}</p>
+                            <p className="mt-2 p-2 ">{post.text || ' '}</p>
                         </div>
                     </div>
                 </div>

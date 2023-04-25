@@ -7,6 +7,7 @@ import { useDebounce } from '../../../hooks';
 
 function News() {
     let [inputValue, setInputValue] = useState('');
+    let [allPost, setAllPost] = useState([]);
     let [posts, setPosts] = useState([]);
     let [page, setPage] = useState(1);
     let [total, setTotal] = useState(1);
@@ -27,6 +28,15 @@ function News() {
         };
         fetchApi();
     }, [page, total]);
+    useEffect(() => {
+        const urlGetAllPost = `${env.API_URL}/api/v1/posts`;
+        const getAllPost = async () => {
+            await axios.get(urlGetAllPost).then((response) => {
+                setAllPost(response.data);
+            });
+        };
+        getAllPost();
+    }, []);
 
     const times = (number: any) => {
         let pageNum = Math.ceil(number / 10);
@@ -36,7 +46,7 @@ function News() {
     const handlePaging = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         let target = e.currentTarget.textContent;
         if (target === 'Trang sau') {
-            if (page < times(total)) {
+            if (page < times(allPost.length)) {
                 setPage(page + 1);
             }
         } else if (target === 'Trang trước') {
@@ -56,7 +66,9 @@ function News() {
     const renderPages = (total: any) => {
         let content = [];
 
-        for (let i = 0; i < times(total); i++) {
+        let pageNum = Math.ceil(allPost.length / 10);
+
+        for (let i = 0; i < pageNum; i++) {
             content.push(
                 <button
                     onClick={handlePaging}
@@ -79,7 +91,7 @@ function News() {
         if (debounced.toLowerCase().trim().length > 0) {
             let searchKeyWord = inputValue;
 
-            let filteredData = posts.filter(
+            let filteredData = allPost.filter(
                 (item: any) =>
                     item.title.toLowerCase().includes(searchKeyWord) ||
                     item.subtitle.toLowerCase().includes(searchKeyWord),
